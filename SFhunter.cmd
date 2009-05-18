@@ -4293,6 +4293,8 @@ RANGE_AIM_FIRE:
 	match RANGE_RETREAT melee range on you
 	match RANGE_FIRE You think
 	match RANGE_1_AIM stop concentrating on aiming
+#cerran quick edit
+	put prep bb
 	matchwait
 
 RANGE_FIRE_PAUSE:
@@ -4307,7 +4309,10 @@ RANGE_FIRE:
 	match RANGE_RETREAT2_PAUSE roundtime
 	match RANGE_FIRE_PAUSE ...wait
 	match RANGE_FIRE_PAUSE type ahead
-put fire
+#Cerran quick edit
+	put cast
+	pause
+	put fire
 	matchwait
 
 RANGE_RETREAT2_PAUSE:
@@ -7884,13 +7889,13 @@ AMBUSH_HIDE_ON:
 	echo
 	echo AMBUSH_HIDE_ON:
 	echo
-#Welsh	match AMBUSH_HIDE fail
-#Welsh	matchre AMBUSH_RETREAT1 /You are too close|notices|discovers/i
-#Welsh	matchre AMBUSH_ADV /You melt|You blend|Eh\?/i
-#Welsh	matchre AMBUSH_HIDE_PAUSE /\.\.\.wait|type ahead/i
-#Welsh	match AMBUSH_HIDE_PAUSE type ahead
-#Welshput hide
-#Welsh	matchwait
+	match AMBUSH_HIDE fail
+	matchre AMBUSH_RETREAT1 /You are too close|notices|discovers/i
+	matchre AMBUSH_ADV /You melt|You blend|Eh\?/i
+	matchre AMBUSH_HIDE_PAUSE /\.\.\.wait|type ahead/i
+	match AMBUSH_HIDE_PAUSE type ahead
+put hide
+	matchwait
 	match AMBUSH_HIDE fail
 	matchre AMBUSH_RETREAT1 /You are too close|notices|discovers/i
 	matchre AMBUSH_RETREAT /You melt|You blend|Eh\?/i
@@ -11658,7 +11663,7 @@ SKINTYPE_0:
 	match SKIN_TYPE_PAUSE ...wait
 	match SKIN_TYPE_PAUSE type ahead
 	matchre NO_KNIFE /out of reach|remove|already w|What were you|can't seem|Wield what\?/i
-put wield left my knife
+put wield left my skin knife
 	matchwait
 
 SKIN_OFF_PAUSE:
@@ -11935,16 +11940,16 @@ goto BUN2
 BUN2_PAUSE:
 pause
 BUN2:
-#Netzer	echo
-#Netzer	echo BUN2:
-#Netzer	echo
-#Netzer	match %zHskindrop not yours
-#Netzer	match ROPE referring
-#Netzer	match BUN22 you tap
-#Netzer	match BUN2_PAUSE type ahead
-#Netzer	match BUN2_PAUSE ...wait
-#Netzerput tap my bundle
-#Netzer	matchwait
+	echo
+	echo BUN2:
+	echo
+	match %zHskindrop not yours
+	match ROPE referring
+	match BUN22 you tap
+	match BUN2_PAUSE type ahead
+	match BUN2_PAUSE ...wait
+put tap my bundle
+	matchwait
 	echo
 	echo BUN2:
 	echo
@@ -12105,13 +12110,13 @@ put remove bun
 
 
 BUNDONE:
-#NetzerWEAR_BUN:
-#Netzer	echo
-#Netzer	echo WEAR_BUN:
-#Netzer	echo
-#Netzerpause
-#Netzerput wear my bun
-#Netzergoto SKIN_RE_EQUIP
+WEAR_BUN:
+	echo
+	echo WEAR_BUN:
+	echo
+pause
+put wear my bun
+goto SKIN_RE_EQUIP
 	echo
 	echo BUNDONE:
 	echo
